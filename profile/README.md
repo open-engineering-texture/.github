@@ -172,7 +172,7 @@ Babylon.js should consume the resulting textures rather than being responsible f
 
 The responsibilities are deliberately separated.
 
-Open Engineering Models
+### Open Engineering Models
 
 Answers:
 
@@ -185,7 +185,7 @@ Produces:
 * model metadata
 * reusable model components
 
-Open Engineering Textures
+### Open Engineering Textures
 
 Answers:
 
