@@ -1,6 +1,6 @@
 # Open Engineering Textures
 
-![Open Engineering Texture](../assetshero-banner.png)
+![Open Engineering Texture](../assets/hero-banner.png)
 
 **Open Engineering Textures** defines and generates the surface representation of 3D models used throughout the Open Engineering ecosystem.
 Textures give models their visual identity: facial expressions, clothing, logos, labels, decals, markings, materials, and other surface decorations.
