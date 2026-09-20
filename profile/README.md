@@ -27,13 +27,13 @@ Open Engineering Textures
           │
           ▼
    Open Engineering Scenes
-
+```
 Textures are more than images
 
 An image becomes a texture when it has spatial meaning on a model.
 
 Open Engineering therefore distinguishes:
-
+```
 Image
   │
   │ visual content
@@ -45,32 +45,32 @@ Texture
   ├── surface coordinates
   ├── material properties
   └── visual decoration
-
+```
 This allows textures to be generated reproducibly rather than treated as manually created image files.
 
-Automated UV generation
+## Automated UV generation
 
 A central capability is automated UV generation for models exported as GLB.
 
 Where the geometry is known, Open Engineering Textures should use that knowledge rather than relying exclusively on generic UV-unwrapping algorithms.
 
 For example:
-
+```
 LDraw primitive
       │
       ├── cylinder → cylindrical UV
       ├── sphere   → spherical UV
       ├── plane    → planar UV
       └── box      → box projection
-
+```
 Specialised UV Profiles can then describe how known model types should be mapped.
 
-LDraw and minifigures
+## LDraw and minifigures
 
 One of the first target applications is the use of LDraw geometry to create Open Engineering models.
 
 A classic minifigure head provides a particularly useful example:
-
+```
 LDraw head
     │
     ▼
@@ -87,17 +87,17 @@ Facial-expression texture
     ├── surprised
     ├── angry
     └── wink
-
+```
 The physical model remains unchanged while different textures provide different expressions.
 
 This makes the same GLB model reusable across many characters and scenes.
 
-Vector-first texture generation
+## Vector-first texture generation
 
 Structured decorations should preferably be generated from semantic definitions and vector artwork before being rasterised.
 
 For example:
-
+```
 kind: Texture
 target:
   model: ldraw:minifigure-head
@@ -107,9 +107,9 @@ decoration:
 renderer:
   resolution: 1024
   format: png
-
+```
 The definition can produce:
-
+```
 Texture Definition
         │
         ▼
@@ -120,29 +120,29 @@ Texture Definition
         │
         ▼
    GLB Material
-
+```
 This provides deterministic and reproducible texture generation.
 
-Texture atlases
+## Texture atlases
 
 Open Engineering Textures can also generate texture atlases for collections of related states.
 
 For example:
-
+```
 ┌─────────┬─────────┬─────────┐
 │ neutral │  smile  │  angry  │
 ├─────────┼─────────┼─────────┤
 │  wink   │  shock  │  laugh  │
 └─────────┴─────────┴─────────┘
-
+```
 A Babylon.js scene can then select different regions of the same texture atlas.
 
 This is particularly useful for character expressions, animated decorations, and other state-based textures.
 
-Build-time generation
+## Build-time generation
 
 Texture generation should primarily happen during the build process.
-
+```
 Model Definition
        │
        ▼
@@ -165,10 +165,10 @@ Model Definition
        │
        ▼
      Babylon.js
-
+```
 Babylon.js should consume the resulting textures rather than being responsible for generating them.
 
-Relationship with Open Engineering Models
+## Relationship with Open Engineering Models
 
 The responsibilities are deliberately separated.
 
@@ -202,7 +202,7 @@ Produces:
 * generated texture artifacts
 
 Together:
-
+```
               Model
                 │
                 ▼
@@ -214,11 +214,11 @@ Together:
                 │
                 ▼
              Scene
-
+```
 Initial implementation
 
 The first end-to-end proof of concept should demonstrate:
-
+```
 LDraw minifigure head
         │
         ▼
@@ -244,10 +244,10 @@ Textured GLB
         │
         ▼
 Babylon.js
-
+```
 The resulting system should make it possible to generate several facial expressions from one reusable model.
 
-Tooling
+## Tooling
 
 The implementation is intended to support a combination of:
 
@@ -261,13 +261,13 @@ The implementation is intended to support a combination of:
 * Babylon.js as the primary target runtime
 
 A future command-line interface may look like:
-
+```
 oe-texture generate \
   --model person/head.glb \
   --texture smile.yaml \
   --output person/head-smile.glb
-
-Design principles
+```
+## Design principles
 
 Open Engineering Textures follows these principles:
 
@@ -284,7 +284,7 @@ Open Engineering Textures follows these principles:
 11. Keep Babylon.js focused on rendering rather than asset generation.
 12. Make texture definitions reusable across Open Engineering models.
 
-Future applications
+## Future applications
 
 The same infrastructure can support much more than minifigure faces:
 
@@ -305,12 +305,12 @@ The same infrastructure can support much more than minifigure faces:
 * baked textures
 * model-specific UV profiles
 
-Open Engineering
+## Open Engineering
 
 Open Engineering is an open approach to engineering software, systems, models, and experiences through reusable definitions, implementations, and composable elements.
 
 Open Engineering Textures contributes the surface layer of that ecosystem.
-
+``
 Open Engineering Models
           │
           ▼
@@ -325,9 +325,5 @@ Open Engineering Textures
           ▼
       Open Engineering
            Scene
-
+```
 Open Engineering automates the Envelope, preserves the Letter, and continuously grows the Library.
-
-Refine the README
-- [Create a shorter GitHub README](chatgpt://followup-prompt?start_index=7781&end_index=7811)
-- [Add a copy-friendly HTML version](chatgpt://followup-prompt?start_index=7814&end_index=7846)
