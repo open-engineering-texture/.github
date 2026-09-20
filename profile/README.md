@@ -215,7 +215,7 @@ Together:
                 ▼
              Scene
 ```
-Initial implementation
+## Initial implementation
 
 The first end-to-end proof of concept should demonstrate:
 ```
